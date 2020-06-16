@@ -1,0 +1,34 @@
+@import '../../scss/vars';
+
+.footer {
+  background-color: $bg;  
+  &__inner {
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &--sticky {
+    flex: 0 0 auto;
+  }
+  .logo {
+    color: #fff;
+  }
+}
+.copyright {
+  color: #fff;
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 1024px) {
+  .copyright {
+    font-size: 14px;
+  }
+}
+@media (max-width: 900px) {
+  
+}
+@media (max-width: 650px) {
+  
+}

@@ -1,0 +1,44 @@
+.section-text {
+  max-width: 668px;
+  margin-bottom: 48px;
+  &__title {
+    font-size: 36px;   
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 24px;  
+  }
+}
+@media (max-width: 1200px) {
+  .section-text {
+    &__title {
+      font-size: 30px;
+    }
+    &__desc {      
+      font-size: 14px;
+    }  
+  }
+}
+@media (max-width: 1024px) {  
+  .section-text {
+    margin-bottom: 24px;
+    padding-right: 59px;
+    &__title {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    &__desc {      
+      font-size: 14px;
+    }
+  }
+  
+}
+@media (max-width: 900px) {
+  
+}
+@media (max-width: 650px) {
+  .section-text {
+    &__desc {
+      padding-right: 0;
+    }    
+  }
+}
