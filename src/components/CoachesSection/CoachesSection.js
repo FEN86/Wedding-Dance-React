@@ -9,7 +9,7 @@ export default () => {
       <div className="container">
         <div className="coaches__inner">
           <SectionText />
-          <div className="coaches-slider">
+          <div className="coaches__list">
             <CoachCard />
           </div>
         </div>

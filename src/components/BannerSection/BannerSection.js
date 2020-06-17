@@ -1,24 +1,18 @@
 import React from 'react';
 import './BannerSection.scss';
 import BannerImg from '../../assets/images/content_001.jpg';
+import Button from '../Button/Button'
 
-export default () => {
+export default props => {
   return (
     <section className="banner section-mb">
       <div className="container">
         <div className="banner__inner">
           <div className="banner__content">
-            <h1 className="banner__title">Wedding Dance Lessons</h1>
-            <p className="banner__subtitle">New Jersey</p>
-            <p className="banner__text">The wedding
-            dance
-            is one of the most
-            important dances in your life.
-            You
-            look perfect and the whole audience is looking at you. Also, it becomes the favorite moment you like to
-                play on videos and photos. Feel the moment</p>
-            <button className="btn" type="button">Let’s
-                start</button>
+            <h1 className="banner__title">{props.title}</h1>
+            <p className="banner__subtitle">{props.location}</p>
+            <p className="banner__text">{props.description}</p>
+            <Button />
           </div>
           <div className="banner__img" aria-label="Wedding Dance"
             style={{ backgroundImage: `url(${BannerImg})` }}></div>
