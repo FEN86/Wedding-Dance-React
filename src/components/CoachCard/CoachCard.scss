@@ -1,6 +1,6 @@
 @import '../../scss/vars';
 
-.slider-card {
+.coach-card {
   &__inner {
     display: flex;
     max-width: 640px;
@@ -40,6 +40,116 @@
     margin-bottom: 16px;
     span {
       opacity: 0.5;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .coach-card {
+    &__body {
+      padding: 43px 23px;
+    }
+    &__num {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+    }
+    &__subtitle {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    &__item {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .coach-card {
+    &__figure {
+      overflow: hidden;
+      max-width: 100%;
+      min-width: 240px;
+      width: auto;
+      min-height: 340px;
+      height: auto;
+      position: relative;
+    }
+    &__body {
+      padding: 16px 23px 50px;
+      position: relative;
+    }
+    &__num {
+      font-size: 12px;
+      line-height: 20px;
+      margin-bottom: 9px;
+    }
+    &__title {
+      margin-bottom: 4px;
+    }
+    &__subtitle {
+      font-size: 13px;
+      line-height: 21px;
+      margin-bottom: 16px;
+    }
+    &__list {
+      margin-bottom: 0;
+    }
+    &__item {
+      font-size: 13px;
+      line-height: 21px;
+      margin-bottom: 8px;
+      span {
+        display: block;
+      }
+    }
+  }
+  .coach-card__btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 0;
+    line-height: 0;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    padding: 0;
+    &::after {
+      content: "\E009";
+      font-size: 20px;
+      line-height: 0.8;
+      font-family: "icons";
+      border-radius: 50%;
+      color: $accent;
+    }
+    &:hover {
+      background-color: $accent;
+    }
+    &:hover::after {
+      color: #fff;
+    }
+  }
+}
+@media (max-width: 900px) {
+  .coach-card {
+    &__inner {
+      flex-direction: column;
+    }
+    &__figure {
+      width: 100%;
+      min-height: 340px;
+    }
+    &__body {
+      padding: 16px 23px 32px;
+    }
+    &__list {
+      max-width: 210px;
+    }
+  }
+}
+@media (max-width: 650px) {
+  .coach-card {
+    &__figure {
+      min-height: 280px;
     }
   }
 }

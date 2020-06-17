@@ -26,7 +26,7 @@ export default () => (
               <a href="#" className="main-nav__link">Lesson Review</a>
             </li>
           </ul>
-          <button className="transformer-btn transformer-btn--desktop transformer-btn--mobile" type="button"
+          <button className="btn-menu" type="button"
             data-open-modal>Start</button>
           <button className="close-btn" aria-label="close menu" type="button"></button>
         </nav>

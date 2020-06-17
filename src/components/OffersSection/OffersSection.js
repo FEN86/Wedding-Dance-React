@@ -5,7 +5,7 @@ import OffersItem from '../OffersItem/OffersItem';
 
 export default () => {
   return (
-    <section className="offers">
+    <section className="offers section-mb">
       <div className="container">
         <div className="offers__inner">
           <SectionText />

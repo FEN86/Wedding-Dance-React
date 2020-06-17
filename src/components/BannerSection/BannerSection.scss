@@ -1,6 +1,5 @@
 .banner {
   margin-top: 72px;
-  margin-bottom: 100px;
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -78,7 +77,6 @@
 @media (max-width: 900px) {
   .banner {
     margin-top: 57px;
-    margin-bottom: 56px;
     &__inner {
       flex-direction: column;  
     }      

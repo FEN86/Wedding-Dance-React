@@ -1,5 +1,4 @@
 .coaches {
-  margin-bottom: 100px;
   &__inner {
     position: relative;
   }
@@ -7,58 +6,13 @@
     margin-bottom: 0;
   }
 }
-.coaches-slider {
-  .slick-track{
-    display: flex;
-    margin: 48px 0 60px;
-  }
-  .slick-slide {
-    height: auto;
-  }
+@media (max-width: 1200px) {
+  
 }
-.coaches-slider {
-  margin: 0 -8px;
-  &__item {
-    margin: 0 8px;
-  }
-  .slick-arrow {
-    position: absolute;
-    bottom: 0;
-    transform: translateX(-50%);
-    font-size: 0;
-    line-height: 0;
-    width: 40px;
-    height: 28px;
-    z-index: 1;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    &::before {
-      content: '\E00A';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40px;
-      height: 28px;
-      display: block;
-      font-size: 28px;
-      line-height: 1;
-      font-family: "icons";
-    }
-    &.slick-disabled {
-      &::before {
-        opacity: 0.3;
-      }
-    }
-  }
-  .slick-next {
-    left: calc(50% + 80px);
-  }
-  .slick-prev {
-    left: calc(50% - 80px);
-    &::before {
-      transform: translate(-50%, -50%) rotate(180deg);
-    }
-  }
+@media (max-width: 1024px) {
+  
+}
+@media (max-width: 900px) {
+}
+@media (max-width: 650px) {
 }

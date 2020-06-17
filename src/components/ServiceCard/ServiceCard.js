@@ -6,10 +6,10 @@ export default () => {
     <div className="card">
       <div className="card__inner">
         <div className="card__header">
-          <img className="img" src="images/content_002.jpg" alt="description" />
+          <img className="img" src={require("../../assets/images/content_002.jpg")} alt="description" />
         </div>
         <div className="card__body">
-          <h3 className="card__title title title--h3">For Bride and Groom</h3>
+          <a href="#" className="card__title">For Bride and Groom</a>
           <ul className="card__list">
             <li className="card__item">First Dance</li>
             <li className="card__item">Parent & Child Dance</li>

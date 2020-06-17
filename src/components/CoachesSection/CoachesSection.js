@@ -5,7 +5,7 @@ import CoachCard from '../CoachCard/CoachCard';
 
 export default () => {
   return (
-    <section className="coaches">
+    <section className="coaches section-mb">
       <div className="container">
         <div className="coaches__inner">
           <SectionText />

@@ -1,9 +1,10 @@
 import React from 'react';
 import './BannerSection.scss';
+import BannerImg from '../../assets/images/content_001.jpg';
 
 export default () => {
   return (
-    <section className="banner">
+    <section className="banner section-mb">
       <div className="container">
         <div className="banner__inner">
           <div className="banner__content">
@@ -20,7 +21,7 @@ export default () => {
                 start</button>
           </div>
           <div className="banner__img" aria-label="Wedding Dance"
-            style={{ backgroundImage: 'url(../../../../assets/images/content_001.jpg)' }}></div>
+            style={{ backgroundImage: `url(${BannerImg})` }}></div>
         </div>
       </div>
     </section>
