@@ -1,0 +1,68 @@
+@import '../../scss/vars';
+.offers { 
+  &__item {
+    width: calc(25% - 30px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 64px;
+  }
+  &__figure {
+    margin-bottom: 20px;
+  }
+  &__img {
+    line-height: 1;
+    &::before {
+      font-size: 70px;
+      color: $accent;
+    }
+  }
+  &__item-text {
+    max-width: 187px;
+    text-align: center;
+  }
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 1024px) {
+  .offers {
+    &__item {
+      width: calc(25% - 30px);
+      margin-bottom: 34px;
+    }
+    &__figure {
+      margin-bottom: 10px;
+    }
+    &__img {
+      &::before {
+        font-size: 50px;
+        color: $accent;
+      }
+    }
+    &__item-text {
+      font-size: 14px;
+    }
+  }  
+}
+@media (max-width: 900px) {  
+  .offers {
+    &__item {
+      width: calc(33.333% - 30px);
+    }
+  }  
+}
+@media (max-width: 650px) {  
+  .offers {
+    &__item {
+      width: calc(50% - 20px);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    &__item-text {
+      max-width: 100%;
+    }
+  }  
+}

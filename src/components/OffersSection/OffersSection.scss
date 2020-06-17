@@ -1,0 +1,31 @@
+@import '../../scss/vars';
+.offers {
+  margin-bottom: 100px;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }  
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 1024px) {
+    
+}
+@media (max-width: 900px) { 
+  .offers {
+    margin-bottom: 56px;
+    &__list {
+      justify-content: start;
+    }
+   
+  }  
+}
+@media (max-width: 650px) {  
+  .offers {
+    &__list {
+      margin: 0 -10px;
+    }
+  }  
+}

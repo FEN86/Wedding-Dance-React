@@ -8,7 +8,7 @@ const footer = () => {
       <div className="container">
         <div className="footer__inner">
           <Logo />
-          <p class="copyright">Copyright © 2019</p>
+          <p className="copyright">Copyright © 2019</p>
         </div>
       </div>
     </footer>

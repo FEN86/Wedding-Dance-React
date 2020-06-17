@@ -1,0 +1,110 @@
+.card {
+  width: calc(33.3333% - 16px);
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 4px 30px rgba(207, 207, 207, 0.25);
+    border-radius: 2px;
+    background-color: #fff;
+    height: 100%;
+  }
+  &__header {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden; 
+  }
+  &__body {
+    padding: 40px 24px;
+  }
+  &__item {
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .banner {
+    &__content {
+      padding: 53px 37px 50px 0;
+    }
+    &__title {
+      font-size: 54px;
+      line-height: 60px;
+    }
+    &__subtitle {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 30px;
+    }
+    &__text {
+      margin-bottom: 30px;
+    }
+  }
+  .card {
+    &__figure {
+      min-height: 380px;
+    }
+    &__body {
+      padding: 28px 20px;
+    }
+    &__item {
+      font-size: 14px;
+    }
+  }
+  .title {
+    &--h2 {
+      font-size: 30px;
+    }
+    &--h3 {
+      font-size: 21px;
+    }
+  }
+  .slider-card {
+    &__body {
+      padding: 43px 23px;
+    }
+  }
+  .slider-card {
+    &__body {
+      padding: 43px 23px;
+    }
+    &__num {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 700;
+    }
+    &__subtitle {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    &__item {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .card {
+    &__header {
+      min-height: 300px;
+    }
+    &__body {
+      padding: 24px 16px;
+    }
+    &__item {
+      font-size: 13px;
+    }
+  }
+}
+@media (max-width: 900px) {
+  
+}
+@media (max-width: 650px) {
+  .card {
+    &__header {
+      min-height: 280px;
+    }
+  }
+}

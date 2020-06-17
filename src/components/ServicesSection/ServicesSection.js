@@ -1,6 +1,7 @@
 import React from 'react';
-import './Services';
+import './ServicesSection';
 import SectionText from '../SectionText/SectionText';
+import SercviceCatd from '../ServiceCard/ServiceCard'
 
 export default () => {
   return (
@@ -8,6 +9,9 @@ export default () => {
       <div className="container">
         <div className="services__inner">
           <SectionText />
+          <div className="services__list">
+            <SercviceCatd />
+          </div>
         </div>
       </div>
     </section>
