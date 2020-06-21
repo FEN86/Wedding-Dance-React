@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ServiceCard.scss';
 
-export default () => {
+const ServiceCard = props => {
+  const { dataItem: { title, url } } = props;
   return (
     <div className="card">
       <div className="card__inner">
@@ -9,7 +11,7 @@ export default () => {
           <img className="img" src={require("../../assets/images/content_002.jpg")} alt="description" />
         </div>
         <div className="card__body">
-          <a href="#" className="card__title">For Bride and Groom</a>
+          <a href={url} className="card__title">{title}</a>
           <ul className="card__list">
             <li className="card__item">First Dance</li>
             <li className="card__item">Parent & Child Dance</li>
@@ -19,3 +21,12 @@ export default () => {
     </div>
   )
 }
+
+ServiceCard.propTypes = {
+  dataItem: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+  }).isRequired
+}
+
+export default ServiceCard

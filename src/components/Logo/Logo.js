@@ -1,10 +1,16 @@
 import React from 'react';
 import './Logo.scss'
+import PropTypes from 'prop-types';
 
-function logo() {
+function Logo(props) {
   return (
-    <a className="logo" href="#">Wedding Dance</a>
+    <a className={`logo ${props.mod ? 'logo--color-mod' : ''}`} href="#">{props.children}</a>
   )
 }
 
-export default logo
+Logo.propTypes = {
+  mod: PropTypes.bool
+}
+
+export default Logo
+

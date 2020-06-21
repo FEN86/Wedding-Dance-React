@@ -2,6 +2,10 @@
   &__inner {
     position: relative;
   }
+  &__list {
+    display: flex;
+    margin: 0 -8px; 
+  }
 }
 @media (max-width: 1200px) {
   

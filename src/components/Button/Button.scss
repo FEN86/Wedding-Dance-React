@@ -1,22 +1,42 @@
 @import '../../scss/vars';
  
 .btn {
-  font-family: 'Montserrat', sans-serif;font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;
-  line-height: 22px;
-  border: 2px solid $accent;
-  border-radius: 3px;
-  padding: 11px 40px 10px;
-  background-color: #fff;
-  color: $accent;
+  line-height: 22px;  
+  border: 2px solid transparent;
+  border-radius: 3px;  
+  background-color: #fff;  
   cursor: pointer;
-  transition: background-color .3s, color .3s;
-  &:hover {
-    background-color: $accent;
-    color: #fff;
+  transition: background-color .3s, color .3s;  
+  
+  &--size-md {
+    padding: 11px 40px 10px;
   }
-  &:focus {
-    outline-color: $accent;
+  &--size-sm {
+    padding: 6px 33px 5px;  
   }
+  &--color-primary {
+    border-color: $accent;
+    color: $accent;
+    &:hover {
+      background-color: $accent;
+      color: #fff;
+    }
+    &:focus {
+      outline-color: $accent;
+    }
+  }
+  &--color-secondary {
+    border-color: $text;
+    color: $text;
+    &:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    &:focus {
+      outline-color: #000;
+    }
+  }  
 }

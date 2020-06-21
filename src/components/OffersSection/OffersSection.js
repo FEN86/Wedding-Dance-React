@@ -2,18 +2,43 @@ import React from 'react';
 import './OffersSection.scss';
 import SectionText from '../SectionText/SectionText';
 import OffersItem from '../OffersItem/OffersItem';
+import PropTypes from 'prop-types';
 
-export default () => {
+const { shape, string, arrayOf } = PropTypes;
+const OffersSection = props => {
+  const { data: { meta, content } } = props;
   return (
     <section className="offers section-mb">
       <div className="container">
         <div className="offers__inner">
-          <SectionText />
+          <SectionText
+            title={meta.title}
+            description={meta.description}
+          />
           <div className="offers__list">
-            <OffersItem />
+            {content.map((iconCard) => {
+              return (
+                <OffersItem key={iconCard} dataIconCard={iconCard} />
+              )
+            })}
           </div>
         </div>
       </div>
     </section>
   )
 }
+
+OffersSection.propTypes = {
+  data: shape({
+    meta: shape({
+      title: string.isRequired,
+      description: string.isRequired,
+    }).isRequired,
+    content: arrayOf(shape({
+      title: string.isRequired,
+      url: string.isRequired
+    })).isRequired
+  }).isRequired
+}
+
+export default OffersSection

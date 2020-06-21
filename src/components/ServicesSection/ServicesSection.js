@@ -1,19 +1,44 @@
 import React from 'react';
-import './ServicesSection';
+import './ServicesSection.scss';
 import SectionText from '../SectionText/SectionText';
-import ServiceCard from '../ServiceCard/ServiceCard'
+import ServiceCard from '../ServiceCard/ServiceCard';
+import PropTypes from 'prop-types';
 
-export default () => {
+const { shape, string, arrayOf } = PropTypes;
+const ServicesSection = props => {
+  const { data: { meta, content } } = props;
   return (
     <section className="services section-mb">
       <div className="container">
         <div className="services__inner">
-          <SectionText />
+          <SectionText
+            title={meta.title}
+            description={meta.description}
+          />
           <div className="services__list">
-            <ServiceCard />
+            {content.map((item) => {
+              return (
+                <ServiceCard key={item._id} dataItem={item} />
+              )
+            })}
           </div>
         </div>
       </div>
     </section>
   )
 }
+
+ServicesSection.propTypes = {
+  data: shape({
+    meta: shape({
+      title: string.isRequired,
+      description: string.isRequired,
+    }).isRequired,
+    content: arrayOf(shape({
+      title: string.isRequired,
+      url: string.isRequired
+    })).isRequired
+  }).isRequired
+}
+
+export default ServicesSection
