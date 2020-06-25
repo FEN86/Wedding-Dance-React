@@ -6,64 +6,64 @@ import PropTypes from 'prop-types';
 
 
 const { shape, string, arrayOf } = PropTypes;
-class Header extends React.Component {
-  state = {
-    shadow: false,
-  };
+// class Header extends React.Component {
+//   state = {
+//     shadow: false,
+//   };
 
-  handler = () => {
-    if (window.pageYOffset > 0 && !this.state.shadow) {
-      this.setState({
-        shadow: true
-      });
-    } else if (window.pageYOffset === 0 && this.state.shadow) {
-      this.setState({
-        shadow: false
-      });
-    }
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.handler);
-    window.addEventListener('resize', this.handler);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handler);
-    window.removeEventListener('resize', this.handler);
-  }
-  render() {
-    const { shadow } = this.state;
-    const { data: { meta, content, action } } = this.props;
-    return (
-      <header className={`header ${shadow ? 'header--shadow' : ''}`}>
-        <div className="container">
-          <div className="header__inner">
-            <Logo>{meta.title}</Logo>
-            <nav className="main-nav main-nav--mod" aria-label="menu">
-              <p className="main-nav__title">Menu</p>
-              <ul className="main-nav__list main-nav__list--mod">
-                {content.map((link) => {
-                  return (
-                    <li key={link._id} className="main-nav__item">
-                      <a href={link.url} className="main-nav__link">{link.title}</a>
-                    </li>
-                  )
-                })}
+//   handler = () => {
+//     if (window.pageYOffset > 0 && !this.state.shadow) {
+//       this.setState({
+//         shadow: true
+//       });
+//     } else if (window.pageYOffset === 0 && this.state.shadow) {
+//       this.setState({
+//         shadow: false
+//       });
+//     }
+//   }
+//   componentDidMount() {
+//     window.addEventListener('scroll', this.handler);
+//     window.addEventListener('resize', this.handler);
+//   }
+//   componentWillUnmount() {
+//     window.removeEventListener('scroll', this.handler);
+//     window.removeEventListener('resize', this.handler);
+//   }
+//   render() {
+//     const { shadow } = this.state;
+//     const { data: { meta, content, action } } = this.props;
+//     return (
+//       <header className={`header ${shadow ? 'header--shadow' : ''}`}>
+//         <div className="container">
+//           <div className="header__inner">
+//             <Logo>{meta.title}</Logo>
+//             <nav className="main-nav main-nav--mod" aria-label="menu">
+//               <p className="main-nav__title">Menu</p>
+//               <ul className="main-nav__list main-nav__list--mod">
+//                 {content.map((link) => {
+//                   return (
+//                     <li key={link._id} className="main-nav__item">
+//                       <a href={link.url} className="main-nav__link">{link.title}</a>
+//                     </li>
+//                   )
+//                 })}
 
 
-              </ul>
-              <Button size="sm" color="secondary">{action.title}</Button>
-              <button className="close-btn" aria-label="close menu" type="button"></button>
-            </nav>
-            <button className="burger-btn" type="button" aria-label="open menu">
-              <span className="burger-btn__line"></span>
-            </button>
-          </div>
-        </div>
-      </header>
-    )
-  }
+//               </ul>
+//               <Button size="sm" color="secondary">{action.title}</Button>
+//               <button className="close-btn" aria-label="close menu" type="button"></button>
+//             </nav>
+//             <button className="burger-btn" type="button" aria-label="open menu">
+//               <span className="burger-btn__line"></span>
+//             </button>
+//           </div>
+//         </div>
+//       </header>
+//     )
+//   }
 
-}
+// }
 
 const useShadow = () => {
   const [shadow, setShadow] = useState(false);
@@ -96,8 +96,8 @@ const useShadow = () => {
   return shadow;
 }
 
-const Header2 = (props) => {
-  const { data: { meta, content, action } } = props;
+const Header = (props) => {
+  const { data: { meta, content, action }, openModal } = props;
   const shadow = useShadow();
 
   return (
@@ -116,7 +116,7 @@ const Header2 = (props) => {
                 )
               })}
             </ul>
-            <Button size="sm" color="secondary">{action.title}</Button>
+            <Button size="sm" color="secondary" onClick={openModal}>{action.title}</Button>
             <button className="close-btn" aria-label="close menu" type="button"></button>
           </nav>
           <button className="burger-btn" type="button" aria-label="open menu">
@@ -147,4 +147,4 @@ Header.propTypes = {
   }).isRequired
 }
 
-export default Header2
+export default Header

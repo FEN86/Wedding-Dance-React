@@ -5,7 +5,7 @@ import CoachCard from '../CoachCard/CoachCard';
 import PropTypes from 'prop-types';
 
 
-const { shape, string, arrayOf } = PropTypes;
+const { shape, string, arrayOf, array } = PropTypes;
 const CoachesSection = props => {
   const { data: { meta, content } } = props;
   return (
@@ -17,9 +17,9 @@ const CoachesSection = props => {
             description={meta.description}
           />
           <div className="coaches__list">
-            {content.map((card) => {
+            {content.map((card, index) => {
               return (
-                <CoachCard key={card._id} dataCard={card} />
+                <CoachCard key={card._id} dataCard={card} index={index} />
               )
             })}
           </div>
@@ -36,7 +36,7 @@ CoachesSection.propTypes = {
       description: string.isRequired
     }).isRequired,
     content: arrayOf(shape({
-      style: arrayOf(shape({})).isRequired,
+      style: array.isRequired,
       name: string.isRequired,
       direction: string.isRequired,
       workExperience: string.isRequired,

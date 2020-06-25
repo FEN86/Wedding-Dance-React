@@ -7,27 +7,16 @@ import ServicesSection from './components/ServicesSection/ServicesSection';
 import OffersSection from './components/OffersSection/OffersSection';
 import CoachesSection from './components/CoachesSection/CoachesSection';
 import Modal from './components/Modal/Modal';
+
 class App extends Component {
   state = {
-    content: null
+    content: null,
+    isOpenFormLog: false
   }
 
   async componentDidMount() {
 
-    // const items = await Promise.all([fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section/navigation').then(r => r.json()),
-    // fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section/info').then(r => r.json()),
-    // fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section/service').then(r => r.json()),
-    // fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section/offer').then(r => r.json()),
-    // fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section/coach').then(r => r.json()),
-    // ])
-
-
-    // console.log(items)
-
     const data = await fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section').then(r => r.json());
-    // setTimeout(() => {
-    //   this.setState({ content: data.content })
-    // }, 2000)
 
     const groupedData = data.content.reduce((res, item) => {
       const { type } = item;
@@ -48,12 +37,14 @@ class App extends Component {
 
   }
 
+  openModal = () => {
+    this.setState({
+      isOpenFormLog: !this.state.isOpenFormLog
+    })
+  }
 
   render() {
     const { data } = this.state;
-    console.log(data);
-
-    // const content = this.state.content;
 
     if (!data) {
       return <div>Loading...</div>
@@ -66,6 +57,7 @@ class App extends Component {
         <div className="content">
           <Header
             data={navigation}
+            openModal={this.openModal}
           />
           <BannerSection
             data={info}
@@ -80,8 +72,8 @@ class App extends Component {
             data={coach}
           />
         </div>
-        <Footer />
-        <Modal />
+        <Footer data={navigation} />
+        <Modal close={this.openModal} isOpen={this.state.isOpenFormLog} />
       </div>
     );
   }

@@ -16,9 +16,9 @@ const OffersSection = props => {
             description={meta.description}
           />
           <div className="offers__list">
-            {content.map((iconCard) => {
+            {content.map((iconCard, index) => {
               return (
-                <OffersItem key={iconCard} dataIconCard={iconCard} />
+                <OffersItem key={index} dataIconCard={iconCard} index={index} />
               )
             })}
           </div>

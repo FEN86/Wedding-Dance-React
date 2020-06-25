@@ -16,9 +16,9 @@ const ServicesSection = props => {
             description={meta.description}
           />
           <div className="services__list">
-            {content.map((item) => {
+            {content.map((item, index) => {
               return (
-                <ServiceCard key={item._id} dataItem={item} />
+                <ServiceCard key={item._id} dataItem={item} index={index} />
               )
             })}
           </div>
