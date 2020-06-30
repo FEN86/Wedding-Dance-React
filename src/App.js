@@ -7,16 +7,22 @@ import ServicesSection from './components/ServicesSection/ServicesSection';
 import OffersSection from './components/OffersSection/OffersSection';
 import CoachesSection from './components/CoachesSection/CoachesSection';
 import Modal from './components/Modal/Modal';
+import {BASE_URL} from './constants';
+import Loader from './components/Loader/Loader';
+import FormLog from "./components/FormLog/FormLog";
+import OffersEditor from "./components/OffersEditor/OffersEditor";
 
 class App extends Component {
   state = {
     content: null,
-    isOpenFormLog: false
+    isOpenFormLog: false,
+    accessToken: localStorage.getItem(('access_token')),
+    isOpenFormEdit: false
   }
 
   async componentDidMount() {
 
-    const data = await fetch('https://us-central1-cms-edu-2020-api.cloudfunctions.net/app/api/v1/section').then(r => r.json());
+    const data = await fetch(`${BASE_URL}/app/api/v1/section`).then(r => r.json());
 
     const groupedData = data.content.reduce((res, item) => {
       const { type } = item;
@@ -37,17 +43,32 @@ class App extends Component {
 
   }
 
-  openModal = () => {
+  toggleModal = () => {
     this.setState({
       isOpenFormLog: !this.state.isOpenFormLog
     })
   }
 
+  handleSuccessLogin = (accessToken) => {
+    this.setState({
+      accessToken,
+      isOpenFormLog: false
+    })
+  }
+
+  logOut = () => {
+    localStorage.removeItem('access_token');
+    this.setState({
+      accessToken: null
+    })
+  }
+
+
+
   render() {
     const { data } = this.state;
-
     if (!data) {
-      return <div>Loading...</div>
+      return <Loader />
     }
 
     const { info, service, navigation, coach, offer } = data;
@@ -57,7 +78,9 @@ class App extends Component {
         <div className="content">
           <Header
             data={navigation}
-            openModal={this.openModal}
+            openModal={this.toggleModal}
+            isAuthorised={this.state.accessToken}
+            logOut={this.logOut}
           />
           <BannerSection
             data={info}
@@ -67,13 +90,21 @@ class App extends Component {
           />
           <OffersSection
             data={offer}
+            openModal={this.toggleModal}
+            isAuthorised={this.state.accessToken}
           />
           <CoachesSection
             data={coach}
           />
         </div>
         <Footer data={navigation} />
-        <Modal close={this.openModal} isOpen={this.state.isOpenFormLog} />
+        <Modal isOpen={this.state.isOpenFormLog}>
+          {
+            this.state.accessToken
+                ? <OffersEditor onClose={this.toggleModal}/>
+                                : <FormLog onClose={this.toggleModal} onSuccess={this.handleSuccessLogin}/>
+          }
+        </Modal>
       </div>
     );
   }

@@ -1,31 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, {number} from 'prop-types';
 import './ServiceCard.scss';
 
+const { shape, string } = PropTypes;
 const ServiceCard = props => {
   const { dataItem: { title, url }, index } = props;
   return (
-    <div className="card">
+    <a href={url} className="card">
       <div className="card__inner">
         <div className="card__header">
-          <img className="img" src={require(`../../assets/images/service-content_00${index + 1}.jpg`)} alt="description" />
+          <img className="img card__img" src={require(`../../assets/images/service-content_00${index + 1}.jpg`)} alt="description" />
         </div>
         <div className="card__body">
-          <a href={url} className="card__title">{title}</a>
+          <h3  className="card__title">{title}</h3>
           <ul className="card__list">
             <li className="card__item">First Dance</li>
             <li className="card__item">Parent & Child Dance</li>
           </ul>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
 ServiceCard.propTypes = {
-  dataItem: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+  index: number.isRequired,
+  dataItem: shape({
+    title: string.isRequired,
+    url: string.isRequired
   }).isRequired
 }
 

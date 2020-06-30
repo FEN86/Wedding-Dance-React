@@ -1,11 +1,17 @@
 import React from 'react';
 import './OffersEditor.scss';
 import Button from '../Button/Button';
+import PropTypes from "prop-types";
 
-const OffersEditor = () => {
+const { func } = PropTypes;
+const OffersEditor = props => {
+    const { onClose } = props;
+
+    const handleSubmitEdit = (e) => {
+        e.preventDefault();
+    }
   return (
-
-    <form className="form-edit">
+    <form className="form-edit" onSubmit={handleSubmitEdit}>
       <h2 className="form-edit__title">Section content editor</h2>
       <div className="form-edit__row">
         <label className="form-edit__label" htmlFor="id_021">Title</label>
@@ -27,11 +33,14 @@ const OffersEditor = () => {
       </div>
       <div className="form-edit__row form-edit__row--btn">
         <Button type="submit">Ok</Button>
-        <Button>Cancel</Button>
+        <Button onClick={onClose}>Cancel</Button>
       </div>
     </form>
-
   )
+}
+
+OffersEditor.propTypes = {
+    onClose: func.isRequired
 }
 
 export default OffersEditor

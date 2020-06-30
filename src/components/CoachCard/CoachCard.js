@@ -1,7 +1,11 @@
 import React from 'react';
 import './CoachCard.scss';
 import Button from '../Button/Button'
+import PropTypes from "prop-types";
 
+
+
+const { shape, string, arrayOf, array, number } = PropTypes;
 const CoachCard = props => {
   const { dataCard: { name, direction, workExperience, teachExperience, style }, index } = props;
   return (
@@ -24,6 +28,23 @@ const CoachCard = props => {
       </div>
     </div>
   )
+}
+
+CoachCard.propTypes = {
+  index: number.isRequired,
+  data: shape({
+    meta: shape({
+      title: string.isRequired,
+      description: string.isRequired,
+    }).isRequired,
+    content: arrayOf(shape({
+      style:  array.isRequired,
+      name: string.isRequired,
+      direction: string.isRequired,
+      workExperience: string.isRequired,
+      teachExperience: string.isRequired
+    })).isRequired
+  })
 }
 
 export default CoachCard

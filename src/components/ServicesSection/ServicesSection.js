@@ -36,7 +36,8 @@ ServicesSection.propTypes = {
     }).isRequired,
     content: arrayOf(shape({
       title: string.isRequired,
-      url: string.isRequired
+      url: string.isRequired,
+      _id: string.isRequired
     })).isRequired
   }).isRequired
 }
