@@ -4,9 +4,9 @@ import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import {BASE_URL} from "../../constants";
 
-const { func } = PropTypes;
+const { func, bool } = PropTypes;
 const FormLog = props => {
-    const { onClose, onSuccess } = props;
+    const { onClose, onSuccess, isOpenFormLog } = props;
 
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPassword] = useState('');
@@ -36,7 +36,7 @@ const FormLog = props => {
     }
 
   return (
-    <form className="form-log" onSubmit={handleSubmit}>
+    <form className="form-log" onSubmit={handleSubmit} style={{ display: isOpenFormLog ? 'block' : 'none' }}>
       <div className="form-log__row">
         <label className="form-log__label" htmlFor="id_001">Email</label>
         <input className="form-log__input" type="email" id="id_001" required placeholder="Enter email" value={emailValue} onChange={(e) => setEmailValue(e.target.value)}/>
@@ -58,7 +58,8 @@ const FormLog = props => {
 
 FormLog.propTypes = {
     onClose: func.isRequired,
-    onSuccess: func.isRequired
+    onSuccess: func.isRequired,
+    isOpenFormLog: bool.isRequired
 }
 
 export default FormLog

@@ -3,15 +3,15 @@ import './OffersEditor.scss';
 import Button from '../Button/Button';
 import PropTypes from "prop-types";
 
-const { func } = PropTypes;
+const { func, bool } = PropTypes;
 const OffersEditor = props => {
-    const { onClose } = props;
+    const { onClose, isOpenFormEdit } = props;
 
     const handleSubmitEdit = (e) => {
         e.preventDefault();
     }
   return (
-    <form className="form-edit" onSubmit={handleSubmitEdit}>
+    <form className="form-edit" onSubmit={handleSubmitEdit} style={{ display: isOpenFormEdit ? 'block' : 'none' }}>
       <h2 className="form-edit__title">Section content editor</h2>
       <div className="form-edit__row">
         <label className="form-edit__label" htmlFor="id_021">Title</label>
@@ -40,7 +40,8 @@ const OffersEditor = props => {
 }
 
 OffersEditor.propTypes = {
-    onClose: func.isRequired
+    onClose: func.isRequired,
+    isOpenFormEdit: bool.isRequired
 }
 
 export default OffersEditor

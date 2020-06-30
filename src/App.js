@@ -43,9 +43,15 @@ class App extends Component {
 
   }
 
-  toggleModal = () => {
+  toggleModalFormLog = () => {
     this.setState({
       isOpenFormLog: !this.state.isOpenFormLog
+    })
+  }
+
+  toggleModalFormEdit = () => {
+    this.setState({
+      isOpenFormEdit: !this.state.isOpenFormEdit
     })
   }
 
@@ -78,7 +84,7 @@ class App extends Component {
         <div className="content">
           <Header
             data={navigation}
-            openModal={this.toggleModal}
+            openModal={this.toggleModalFormLog}
             isAuthorised={this.state.accessToken}
             logOut={this.logOut}
           />
@@ -90,7 +96,7 @@ class App extends Component {
           />
           <OffersSection
             data={offer}
-            openModal={this.toggleModal}
+            openModal={this.toggleModalFormEdit}
             isAuthorised={this.state.accessToken}
           />
           <CoachesSection
@@ -98,12 +104,9 @@ class App extends Component {
           />
         </div>
         <Footer data={navigation} />
-        <Modal isOpen={this.state.isOpenFormLog}>
-          {
-            this.state.accessToken
-                ? <OffersEditor onClose={this.toggleModal}/>
-                                : <FormLog onClose={this.toggleModal} onSuccess={this.handleSuccessLogin}/>
-          }
+        <Modal isOpenFormLog={this.state.isOpenFormLog} isOpenFormEdit={this.state.isOpenFormEdit}>
+          <FormLog onClose={this.toggleModalFormLog} onSuccess={this.handleSuccessLogin} isOpenFormLog={this.state.isOpenFormLog}/>
+          <OffersEditor onClose={this.toggleModalFormEdit} isOpenFormEdit={this.state.isOpenFormEdit}/>
         </Modal>
       </div>
     );
